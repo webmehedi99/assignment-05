@@ -1,0 +1,17 @@
+.lexend-font {
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+  }
+  .nav{
+    background-color: #f9f7f3a0;
+    padding-bottom: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .primary-button:hover{
+    background-color: #98d942;
+  }
+  .active{
+    background-color: #B4F461;
+  }
