@@ -18,6 +18,7 @@ document.getElementById('donation-btn').addEventListener('click', function (even
         return false; 
     }
 
+    
 
     if (!isNaN(donateInput)) {
         const donateMoney = document.getElementById('donate-money').innerText;
@@ -26,7 +27,12 @@ document.getElementById('donation-btn').addEventListener('click', function (even
 
         const title = document.getElementById('card-title').innerText;
 
+      // if donate amount is greater than total money //
 
+        if(donateInput > totalMoney){
+            alert('Donation amount should not be greater than available balance');
+            return false ;
+        }
 
         const newDonateInput = parseFloat(donateInput);
         const newDonateMoney = parseFloat(donateMoney);
@@ -74,7 +80,7 @@ document.getElementById('feni-donation-button').addEventListener('click', functi
         alert("Please enter a donation amount.");
         return false; 
     }
-
+   
     if (!isNaN(feniDonationInput)) {
         const donateFeni = document.getElementById('donate-feni').innerText;
         const totalMoney = document.getElementById('total-money').innerText;
@@ -83,6 +89,13 @@ document.getElementById('feni-donation-button').addEventListener('click', functi
         const newDonateFeni = parseFloat(donateFeni);
         const remainingBalance = parseFloat(totalMoney);
 
+        // if donate amount is greater than total money //
+
+        if(feniDonationInput > totalMoney){
+            alert('Donation amount should not be greater than available balance');
+            return false ;
+        }
+
         const newFeniDonation = newFeniDonateInput + newDonateFeni;
         const newRemainingBalance = remainingBalance - newFeniDonateInput;
 
@@ -90,6 +103,8 @@ document.getElementById('feni-donation-button').addEventListener('click', functi
         document.getElementById('total-money').innerText = newRemainingBalance;
 
         my_modal_1.showModal();
+
+       
 
         /* History */
         const li = document.createElement('li');
@@ -134,6 +149,14 @@ document.getElementById('quota-donation-btn').addEventListener('click', function
         const newQuotaDonateInput = parseFloat(quotaDonationInput);
         const newDonateQuota = parseFloat(donateQuota);
         const remainingBalance = parseFloat(totalMoney);
+
+         // if donate amount is greater than total money //
+
+        if(quotaDonationInput > totalMoney){
+            alert('Donation amount should not be greater than available balance');
+            return false ;
+        }
+
 
         const newQuotaDonation = newQuotaDonateInput + newDonateQuota;
         const newRemainingBalance = remainingBalance - newQuotaDonateInput;
