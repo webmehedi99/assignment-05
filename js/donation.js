@@ -2,47 +2,64 @@ document.getElementById('donation-btn').addEventListener('click', function(event
     event.preventDefault();
 
     const donateInput = document.getElementById('donate-input').value;
-    
 
-    if (!isNaN(donateInput )){
-        const donateMoney = document.getElementById('donate-money').innerText;
+     //For Negative amount //
 
-        const totalMoney = document.getElementById('total-money').innerText;
-
-        const title =document.getElementById('card-title').innerText;
-
-    
-       
-        const newDonateInput = parseFloat(donateInput);
-        const newDonateMoney = parseFloat(donateMoney);
-        const remainingBalance = parseFloat(totalMoney);
-       const newDonation = newDonateMoney + newDonateInput;
-        const newRemainingBalance = remainingBalance - newDonateInput;
-
-        document.getElementById('donate-money').innerText = newDonation;
-        document.getElementById('total-money').innerText =newRemainingBalance;
-
-        my_modal_1.showModal();
-
-        /* History */
-        const li =document.createElement('li');
-        li.className = (`p-5 rounded-lg m-5 shadow-xl bg-lime-100`);
-        li.innerText = `BDT: ${newDonateInput} taka Donated For Noakhali (${new Date().toLocaleDateString()}, ${new Date().toLocaleTimeString()})`;
-        const history = document.getElementById('history');
-        history.insertBefore(li, history.firstChild);
-        
-        
+    if (donateInput < 0) {
+        alert('Negative values are not allowed for donations!');
+        event.preventDefault();
+        return false;
     }
-    else(
-        alert('Please Give A Valid Number.')
-    )   
-})
+    
+        if (!isNaN(donateInput )){
+            const donateMoney = document.getElementById('donate-money').innerText;
+    
+            const totalMoney = document.getElementById('total-money').innerText;
+    
+            const title =document.getElementById('card-title').innerText;
+    
+        
+           
+            const newDonateInput = parseFloat(donateInput);
+            const newDonateMoney = parseFloat(donateMoney);
+            const remainingBalance = parseFloat(totalMoney);
+           const newDonation = newDonateMoney + newDonateInput;
+            const newRemainingBalance = remainingBalance - newDonateInput;
+    
+            document.getElementById('donate-money').innerText = newDonation;
+            document.getElementById('total-money').innerText =newRemainingBalance;
+    
+            my_modal_1.showModal();
+    
+            /* History */
+            const li =document.createElement('li');
+            li.className = (`p-5 rounded-lg m-5 shadow-xl bg-lime-100`);
+            li.innerText = `BDT: ${newDonateInput} taka Donated For Noakhali (${new Date().toLocaleDateString()}, ${new Date().toLocaleTimeString()})`;
+            const history = document.getElementById('history');
+            history.insertBefore(li, history.firstChild);
+            
+            
+        }
+        else(
+            alert('Please Give A Valid Number.')
+        )   
+    })
+    
 
 /* Feni Donation */
 document.getElementById('feni-donation-button').addEventListener('click',function(event){
     event.preventDefault();
     
     const feniDonationInput = document.getElementById('feni-donate-input').value;
+
+     //For Negative amount //
+
+    if (feniDonationInput < 0) {
+      alert('Negative values are not allowed for donations!');
+        event.preventDefault();
+        return false;
+    }
+
 
     if(!isNaN(feniDonationInput)){
         const donateFeni = document.getElementById('donate-feni').innerText;
@@ -79,6 +96,14 @@ document.getElementById('quota-donation-btn').addEventListener('click',function(
     event.preventDefault();
     
     const quotaDonationInput = document.getElementById('quota-donation-input').value;
+
+    //For Negative amount //
+
+    if (quotaDonationInput < 0) {
+        alert('Negative values are not allowed for donations!');
+        event.preventDefault(); 
+        return false;
+    }
 
     if(!isNaN(quotaDonationInput)){
         const donateQuota =document.getElementById('donate-quota').innerText;
